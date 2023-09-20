@@ -1,0 +1,13 @@
+<button class="ui button inverted fluid secondary" (click)="toggleModal()">
+  Reply
+</button>
+<app-modal (close)="toggleModal()" *ngIf="modalShown">
+  <div class="header" modalHeader>Reply</div>
+  <app-email-form
+    [readOnlyFrom]="true"
+    [readOnlyTo]="true"
+    [readOnlySubject]="true"
+    [email]="replyEmail"
+    (submitted)="toggleModal()"
+  ></app-email-form
+></app-modal>

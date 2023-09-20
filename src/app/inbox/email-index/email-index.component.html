@@ -1,0 +1,12 @@
+<div class="ui list">
+  <div class="item" *ngFor="let email of emails">
+    <a [routerLink]="['./', email.id]" routerLinkActive="active" class="email">
+      <div class="content">
+        <div class="header nowrap"><span>From:</span> {{ email.from }}</div>
+        <div class="description nowrap">
+          <span>subject: </span>{{ email.subject }}
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<h2>Create an account</h2>
+
+<form [formGroup]="signupForm" class="ui form" (ngSubmit)="submitForm()">
+  <app-input
+    type="text"
+    label="Username"
+    [control]="signupForm.controls.username"
+  ></app-input>
+  <app-input
+    type="password"
+    label="Password"
+    [control]="signupForm.controls.password"
+  ></app-input>
+  <app-input
+    type="password"
+    label="Password Confirmation"
+    [control]="signupForm.controls.passwordConfirmation"
+  ></app-input>
+
+  <ng-container
+    *ngIf="
+      signupForm.errors &&
+      signupForm.controls.password.touched &&
+      signupForm.controls.passwordConfirmation.touched
+    "
+    ><p
+      class="ui message error"
+      *ngIf="signupForm.errors['passwordsDontMatch']"
+      style="display: block"
+    >
+      Passwords don't match
+    </p></ng-container
+  >
+
+  <ng-container *ngIf="signupForm.errors">
+    <p
+      *ngIf="signupForm.errors['noConnection']"
+      class="ui message error"
+      style="display: block"
+    >
+      Check you internet connection (failed to signup)
+    </p>
+    <p
+      *ngIf="signupForm.errors['generalError']"
+      class="ui message error"
+      style="display: block"
+    >
+      Please try agian later (failed to signup)
+    </p>
+  </ng-container>
+
+  <button
+    [disabled]="signupForm.invalid"
+    type="submit"
+    class="ui submit button primary"
+  >
+    submit
+  </button>
+</form>

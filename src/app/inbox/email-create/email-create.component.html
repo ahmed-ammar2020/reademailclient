@@ -1,0 +1,11 @@
+<button class="ui button inverted fluid secondary mb" (click)="toggleModal()">
+  Compose
+</button>
+<app-modal (close)="toggleModal()" *ngIf="modalShown">
+  <div class="header" modalHeader>Compose</div>
+  <app-email-form
+    [readOnlyFrom]="true"
+    (submitted)="toggleModal()"
+    [email]="email"
+  ></app-email-form>
+</app-modal>

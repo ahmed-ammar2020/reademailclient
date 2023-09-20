@@ -1,0 +1,45 @@
+<h2>Sign In</h2>
+<form [formGroup]="signinForm" class="ui form" (ngSubmit)="submitForm()">
+  <app-input
+    [control]="signinForm.controls.username"
+    label="Username"
+    type="text"
+  ></app-input>
+  <app-input
+    [control]="signinForm.controls.password"
+    label="Password"
+    type="password"
+  ></app-input>
+
+  <!-- Showing error messages -->
+  <ng-container *ngIf="signinForm.errors">
+    <p
+      *ngIf="signinForm.errors['noConnection']"
+      class="ui message error"
+      style="display: block"
+    >
+      Check you internet connection (failed to signin)
+    </p>
+    <p
+      *ngIf="signinForm.errors['usernameIsNotValid']"
+      class="ui message error"
+      style="display: block"
+    >
+      Username isn't valid (try again or sign up )
+    </p>
+    <p
+      *ngIf="signinForm.errors['passwordIsNotTrue']"
+      class="ui message error"
+      style="display: block"
+    >
+      Password isn't correct
+    </p>
+  </ng-container>
+  <button
+    [disabled]="signinForm.invalid"
+    type="submit"
+    class="ui button submit primary"
+  >
+    Submit
+  </button>
+</form>

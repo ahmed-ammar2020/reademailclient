@@ -1,0 +1,27 @@
+.email {
+  padding: 10px !important;
+  cursor: pointer;
+}
+
+.email {
+  display: block;
+  border-radius: 10px;
+}
+
+.nowrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+}
+
+.email:hover {
+  background-color: rgb(212, 253, 253);
+}
+
+.active {
+  background-color: aqua !important;
+}
+
+span {
+  color: blueviolet;
+}

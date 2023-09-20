@@ -1,0 +1,17 @@
+<div
+  class="ui dimmer modals page transition visible active"
+  style="display: flex !important"
+  (click)="removeModal()"
+>
+  <div
+    class="ui standard test modal transition visible active"
+    style="display: block !important"
+    (click)="$event.stopPropagation()"
+  >
+    <i class="icon close close-icon" (click)="removeModal()"></i>
+    <ng-content select="[modalHeader]"></ng-content>
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

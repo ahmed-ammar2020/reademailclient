@@ -1,0 +1,17 @@
+<div>
+  <div class="ui grid stackable">
+    <div class="column twelve wide">
+      <h3 class="ui header"><span>From: </span> {{ email.from }}</h3>
+    </div>
+    <div class="column four wide">
+      <app-email-reply [email]="email"></app-email-reply>
+    </div>
+  </div>
+
+  <div class="ui divider"></div>
+  <h3 class="ui header"><span>To: </span>{{ email.to }}</h3>
+  <div class="ui divider"></div>
+  <h4 class="ui header"><span>Subject: </span> {{ email.subject }}</h4>
+  <div class="ui divider"></div>
+  <p [innerHTML]="email.html"></p>
+</div>

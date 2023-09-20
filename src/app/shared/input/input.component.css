@@ -1,0 +1,29 @@
+.field {
+  margin-top: 20px !important;
+}
+
+.my-loader {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  border-top: 2px solid #340072;
+  animation: looping 500ms linear infinite;
+  position: relative;
+  top: 5px;
+  margin-right: 5px;
+}
+
+@keyframes looping {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.good {
+  color: green;
+}

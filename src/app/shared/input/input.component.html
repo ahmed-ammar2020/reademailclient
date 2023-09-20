@@ -1,0 +1,73 @@
+<div
+  class="field"
+  [ngClass]="{ error: control.errors && control.dirty && control.touched }"
+>
+  <label> {{ label }}</label>
+  <input
+    [type]="type"
+    [formControl]="control"
+    [readOnly]="readonly"
+    *ngIf="showInput"
+  />
+  <textarea *ngIf="showTextarea" [formControl]="control"></textarea>
+  <!-- Showing errors messages -->
+  <div *ngIf="control.pending">
+    <span class="my-loader"></span> <small>Verifying the username</small>
+  </div>
+  <ng-container *ngIf="control.errors">
+    <p
+      class="ui error message"
+      *ngIf="control.errors['usernameTaken']"
+      style="display: block"
+    >
+      sorry, username taken. Try another one
+    </p>
+    <p
+      class="ui error message"
+      *ngIf="control.errors['noConnection']"
+      style="display: block"
+    >
+      Check you internet connection
+    </p></ng-container
+  >
+  <ng-container *ngIf="control.errors && control.dirty && control.touched">
+    <p
+      class="ui error message"
+      *ngIf="control.errors['required']"
+      style="display: block"
+    >
+      this field is required
+    </p>
+    <p
+      class="ui error message"
+      *ngIf="control.errors['minlength']"
+      style="display: block"
+    >
+      characters must be at least
+      {{ control.errors["minlength"].requiredLength }}, but you wrote only
+      {{ control.errors["minlength"].actualLength }}
+    </p>
+    <p
+      class="ui error message"
+      *ngIf="control.errors['maxlength']"
+      style="display: block"
+    >
+      characters must be at most
+      {{ control.errors["maxlength"].requiredLength }}, but you wrote
+      {{ control.errors["maxlength"].actualLength }}
+    </p>
+    <p
+      class="ui error message"
+      *ngIf="control.errors['pattern']"
+      style="display: block"
+    >
+      <span
+        *ngIf="
+          control.errors['pattern'].requiredPattern.includes('/^[A-Za-z0-9]*$/')
+        "
+        >Invalid username (only letters and numbers allowed)</span
+      >
+      Sorry, Invalid email format
+    </p>
+  </ng-container>
+</div>
